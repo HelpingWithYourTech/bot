@@ -1,0 +1,24 @@
+{
+  "name": "bot",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelpingWithYourTech/bot.git"
+  },
+  "author": "Echo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HelpingWithYourTech/bot/issues"
+  },
+  "homepage": "https://github.com/HelpingWithYourTech/bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "fs": "0.0.1-security",
+    "mongoose": "^5.11.8"
+  }
+}
