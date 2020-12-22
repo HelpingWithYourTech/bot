@@ -8,6 +8,7 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 client.login(client.config.token);
 
+
 client.on("ready", () => {
     console.log(`${client.user.username} ready`);
     mongoose.connect(client.config.mongoDBuri, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
@@ -24,7 +25,7 @@ for(const file of commandFiles) {
 client.on("message", (message) => {
     if(!client.config.users.includes(message.author.id)) return;
 
-    const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`)
+    const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(client.config.prefix)})\\s*`)
     if(!prefixRegex.test(message.content)) return;
 
     const [, matchedPrefix] = message.content.match(prefixRegex);
@@ -37,7 +38,7 @@ client.on("message", (message) => {
     if(!command) return;
 
     try {
-        command.execute(message, args);
+        command.execute(client, message, args);
     } catch (e) {
         console.error(e);
     }
