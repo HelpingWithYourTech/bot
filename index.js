@@ -4,11 +4,9 @@ const Bot = require("./base/Bot"),
     mongoose = require("mongoose");
 
 const client = new Bot({ disableMentions: "everyone" });
-const website = require("../website/app");
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 client.login(client.config.token);
-website.init();
 
 client.on("ready", () => {
     console.log(`${client.user.username} ready`);
