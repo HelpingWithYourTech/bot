@@ -6,8 +6,6 @@ module.exports = class Bot extends Client {
         this.config = require("../config");
         this.commands = new Collection();
         this.clientsData = require("./Client");
-        this.dashboard = require("../Dashboard/app");
-        this.states = {};
     }
 
     async findClient({name: name}){
